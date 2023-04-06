@@ -25,11 +25,9 @@ jobs:
           ref: main
           path: capstone_project/hello-world
       -
-        name: see the content
+        name: Enter to the project directory
         run: |
-          ls -la
-          cd capstone_project/
-          ls -la
+          cd capstone_project/hello-world/
       - 
         uses: actions/setup-node@v3
         with:
@@ -53,6 +51,10 @@ jobs:
         with:
           ref: main
           path: capstone_project/hello-world
+      -
+        name: Enter to the project directory
+        run: |
+          cd capstone_project/hello-world/
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -83,6 +85,10 @@ jobs:
         with:
           ref: main
           path: capstone_project/hello-world
+      -
+        name: Enter to the project directory
+        run: |
+          cd capstone_project/hello-world/
       - 
         uses: actions/setup-node@v3
         with:
@@ -125,7 +131,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: "capstone_project/hello-world/"
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/node_app_capstone_project:latest
 
