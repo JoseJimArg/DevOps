@@ -37,7 +37,7 @@ jobs:
       - 
         name: Install dependencies
         # Uses ci insted of install to be shure that the dependencies versions are not generating errors
-        run: npm ci
+        run: npm install
 
   build:
     needs: [dependencies]
@@ -62,7 +62,7 @@ jobs:
       - 
         name: Install dependencies
         # Uses ci insted of install to be shure that the dependencies versions are not generating errors
-        run: npm ci
+        run: npm install
       - 
         name: Create build
         run: npm run build
@@ -98,7 +98,7 @@ jobs:
       - 
         name: Install dependencies
         # Uses ci insted of install to be shure that the dependencies versions are not generating errors
-        run: npm ci
+        run: npm install
       - 
         name: Restore build
         uses: actions/download-artifact@v3
