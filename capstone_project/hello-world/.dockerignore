@@ -1,0 +1,8 @@
+# configuire all the files and directories to not be added to the Image
+
+# git
+.gitignore
+README.md
+
+# docker
+Dockerfile
