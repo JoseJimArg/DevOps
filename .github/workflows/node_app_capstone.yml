@@ -16,6 +16,7 @@ jobs:
   dependencies:
     name: Install dependencies
     runs-on: ubuntu-20.04
+    working-directory: ./capstone_project/hello-world
     steps:
       - 
         name: Get files up to date
