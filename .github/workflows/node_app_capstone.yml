@@ -26,7 +26,10 @@ jobs:
           path: capstone_project/hello-world
       -
         name: see the content
-        run: ls -la
+        run: |
+          ls -la
+          cd capstone_project/
+          ls -la
       - 
         uses: actions/setup-node@v3
         with:
