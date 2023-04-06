@@ -25,11 +25,10 @@ jobs:
           ref: main
           path: capstone_project/hello-world
       - 
+        name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-          cache-dependency-path: /home/runner/work/DevOps/DevOps/capstone_project/hello-world/package-lock.json
       - 
         name: Install dependencies
         # Uses ci insted of install to be shure that the dependencies versions are not generating errors
@@ -55,10 +54,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
-      # - name: Install dependencies
-      #   # Uses ci insted of install to be shure that the dependencies versions are not generating errors
-      #   run: npm ci
+      - 
+        name: Install dependencies
+        # Uses ci insted of install to be shure that the dependencies versions are not generating errors
+        run: npm ci
       - 
         name: Create build
         run: npm run build
@@ -91,10 +90,10 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-      # - name: Install dependencies
-      #   # Uses ci insted of install to be shure that the dependencies versions are not generating errors
-      #   run: npm ci
-      #   # Restore the build created before
+      - 
+        name: Install dependencies
+        # Uses ci insted of install to be shure that the dependencies versions are not generating errors
+        run: npm ci
       - 
         name: Restore build
         uses: actions/download-artifact@v3
