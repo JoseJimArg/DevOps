@@ -122,6 +122,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - 
+        name: Restore build
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+      - 
         name: Buil new Docker Image
         run: docker 
       -
