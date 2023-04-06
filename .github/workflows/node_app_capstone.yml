@@ -31,6 +31,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
+          cache-dependency-path: /home/runner/work/DevOps/DevOps/capstone_project/hello-world/package-lock.json
       - 
         name: Install dependencies
         # Uses ci insted of install to be shure that the dependencies versions are not generating errors
