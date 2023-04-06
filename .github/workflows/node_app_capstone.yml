@@ -25,7 +25,10 @@ jobs:
           ref: main
           path: capstone_project/hello-world
       -
-        run: pwd
+        run: |
+          pwd
+          cd capstone_project/hello-world/
+          ls -la
       - 
         name: Setup Node
         uses: actions/setup-node@v3
