@@ -1,4 +1,4 @@
-# Uses a oficial node image and a 
+# Uses a oficial node image and specify a version of node to use
 FROM node:16.13.1 
 
 # Set the path for do all the work
