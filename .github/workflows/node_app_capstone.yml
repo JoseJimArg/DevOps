@@ -24,10 +24,6 @@ jobs:
         with:
           ref: main
           path: capstone_project/hello-world
-      -
-        name: Enter to the project directory
-        run: |
-          cd capstone_project/hello-world/
       - 
         uses: actions/setup-node@v3
         with:
