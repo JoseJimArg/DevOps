@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-          cache-dependency-path: '/capstone_projec/hello-world/'
+          cache-dependency-path: '/home/runner/work/DevOps/DevOps/capstone_projec/hello-world/'
       - 
         name: Install dependencies
         # Uses ci insted of install to be shure that the dependencies versions are not generating errors
