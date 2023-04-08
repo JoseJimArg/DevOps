@@ -1,0 +1,40 @@
+name: Capstone project app Workflow
+
+on:
+  push:
+    # # Only looking for changes in the project path
+    # paths:
+    #   - capstone_project/hello-world/**
+    #   - .github/workflows/node_app_capstone.yml
+  pull_request:
+    # # Only looking for changes in the project path
+    # paths:
+    #   - capstone_project/hello-world/**
+    #   - .github/workflows/node_app_capstone.yml
+
+jobs:
+  test:
+    name: Test the capstone project
+    runs-on: ubuntu-20.04
+    steps:
+      - 
+        name: Get file up to date
+        uses: actions/checkout@v3
+        # Just update the files of the project specifing a path and a branch
+        #  with:
+        #   ref: main
+        #   path: capstone_project/hello-world
+      -
+        name: Install dependencies
+        uses: actions/setup-node@v3
+      - 
+        name: Run tests
+        run: rmp test
+
+
+
+
+
+
+
+
