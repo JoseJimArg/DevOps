@@ -25,9 +25,14 @@ jobs:
         #   ref: main
         #   path: capstone_project/hello-world
       -
-        name: Install dependencies
+        name: Setup Node
         uses: actions/setup-node@v3
-      - 
+      -
+        name: Install dependencies
+        run: |  
+          cd capstone_project/hello-world
+          npm ci 
+      -
         name: Run tests
         run: rmp test
 
