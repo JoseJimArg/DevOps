@@ -1,69 +1,62 @@
-name: Capstone project app Workflow
+# name: Capstone project app Workflow
 
-on:
-  push:
-    # # Only looking for changes in the project path
-    # paths:
-    #   - capstone_project/hello-world/**
-    #   - .github/workflows/node_app_capstone.yml
-  pull_request:
-    # # Only looking for changes in the project path
-    # paths:
-    #   - capstone_project/hello-world/**
-    #   - .github/workflows/node_app_capstone.yml
+# on:
+#   push:
+#     # # Only looking for changes in the project path
+#     # paths:
+#     #   - capstone_project/hello-world/**
+#     #   - .github/workflows/node_app_capstone.yml
+#   pull_request:
+#     # # Only looking for changes in the project path
+#     # paths:
+#     #   - capstone_project/hello-world/**
+#     #   - .github/workflows/node_app_capstone.yml
 
-jobs:
-  test:
-    name: Test the capstone project
-    runs-on: ubuntu-20.04
-    steps:
-      - 
-        name: Get file up to date
-        uses: actions/checkout@v3
-        # Just update the files of the project specifing a path and a branch
-        #  with:
-        #   ref: main
-        #   path: capstone_project/hello-world
-      -
-        name: Setup Node
-        uses: actions/setup-node@v3
-      -
-        name: Install dependencies
-        run: |  
-          cd capstone_project/hello-world
-          npm install 
-      -
-        name: Run tests
-        run: |  
-          cd capstone_project/hello-world
-          npm test
+# jobs:
+#   test:
+#     name: Test the capstone project
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - 
+#         name: Get file up to date
+#         uses: actions/checkout@v3
+#         # Just update the files of the project specifing a path and a branch
+#         #  with:
+#         #   ref: main
+#         #   path: capstone_project/hello-world
+#       -
+#         name: Setup Node
+#         uses: actions/setup-node@v3
+#       -
+#         name: Install dependencies
+#         run: |  
+#           cd capstone_project/hello-world
+#           npm install 
+#       -
+#         name: Run tests
+#         run: |  
+#           cd capstone_project/hello-world
+#           npm test
 
-  container:
-    needs: [test]
-    name: Create a docker image
-    runs-on: ubuntu-20.04
-    steps:
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - 
-        name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          # Secrests are defined on the acount of GitHub
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: "./capstone_project/hello-world/"
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/node_app_capstone_project:latest
-
-
-
-
-
-
-
+#   container:
+#     needs: [test]
+#     name: Create a docker image
+#     runs-on: ubuntu-20.04
+#     steps:
+#       -
+#         name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v2
+#       - 
+#         name: Login to Docker Hub
+#         uses: docker/login-action@v2
+#         with:
+#           # Secrests are defined on the acount of GitHub
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       -
+#         name: Build and push
+#         uses: docker/build-push-action@v4
+#         with:
+#           context: "./capstone_project/hello-world/"
+#           push: true
+#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/node_app_capstone_project:latest
