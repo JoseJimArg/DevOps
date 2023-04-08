@@ -48,10 +48,10 @@
 #       - 
 #         name: Get files up to date
 #         uses: actions/checkout@v3
-#         # Just update the files of the project specifing a path and a branch
-#         with:
-#           ref: main
-#           path: capstone_project/hello-world
+        # Just update the files of the project specifing a path and a branch
+        # with:
+        #   ref: main
+        #   path: capstone_project/hello-world
 #       -
 #         name: Enter to the project directory
 #         run: |
