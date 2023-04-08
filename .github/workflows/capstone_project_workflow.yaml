@@ -34,7 +34,9 @@ jobs:
           npm install 
       -
         name: Run tests
-        run: rmp test
+        run: |  
+          cd capstone_project/hello-world
+          rmp test
 
 
 
