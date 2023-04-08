@@ -42,7 +42,9 @@ jobs:
     needs: [test]
     name: Create a docker image
     runs-on: ubuntu-20.04
-    working-directory: ./capstone_project/hello-world
+    defaults:
+      run:
+        working-directory: capstone_project/hello-world/
     steps:
       -
         name: Set up Docker Buildx
