@@ -57,6 +57,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: "capstone_project/hello-world"
+          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/node_app_capstone_project:latest
