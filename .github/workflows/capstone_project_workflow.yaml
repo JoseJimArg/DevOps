@@ -2,15 +2,15 @@ name: Capstone project app Workflow
 
 on:
   push:
-    # # Only looking for changes in the project path
-    # paths:
-    #   - capstone_project/hello-world/**
-    #   - .github/workflows/node_app_capstone.yml
+    # Only being trigered for changes in the project path
+    paths:
+      - capstone_project/hello-world/**
+      - .github/workflows/node_app_capstone.yml
   pull_request:
-    # # Only looking for changes in the project path
-    # paths:
-    #   - capstone_project/hello-world/**
-    #   - .github/workflows/node_app_capstone.yml
+    # Only being trigered for changes in the project path
+    paths:
+      - capstone_project/hello-world/**
+      - .github/workflows/node_app_capstone.yml
 
 jobs:
   test:
