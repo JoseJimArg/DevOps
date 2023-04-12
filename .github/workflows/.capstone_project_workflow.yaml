@@ -66,5 +66,5 @@ jobs:
         with:
           context: ./capstone_project/hello-world
           push: true
-          tags: josejja1314/capstone_project_react_build:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/capstone_project_react_build:latest
       
