@@ -58,11 +58,15 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build image an push it to Docker Hub
-        uses: docker/build-push-action@v4
-        with:
-          context: ./capstone_project/hello-world
-          push: true
-          tags: josejja1314/capstone_project_react_build:latest
+        run: |
+          cd capstone_project/hello-world
+          docker build -t capstone_project_react_build:latest .
+
+        # uses: docker/build-push-action@v4
+        # with:
+        #   context: ./capstone_project/hello-world
+        #   push: true
+        #   tags: josejja1314/capstone_project_react_build:latest
       
       # - name: go to the path of Docker File
       #   run: cd capstone_project/hello-world/
