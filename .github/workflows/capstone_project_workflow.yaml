@@ -5,12 +5,12 @@ on:
     # Only being trigered for changes in the project path
     paths:
       - capstone_project/hello-world/**
-      - .github/workflows/node_app_capstone.yml
+      - .github/workflows/**
   pull_request:
     # Only being trigered for changes in the project path
     paths:
       - capstone_project/hello-world/**
-      - .github/workflows/node_app_capstone.yml
+      - .github/workflows/**
 
 jobs:
   test:
