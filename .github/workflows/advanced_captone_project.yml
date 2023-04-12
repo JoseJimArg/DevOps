@@ -1,5 +1,4 @@
 # name: Capstone project app Workflow
-
 # on:
 #   push:
 #     # Only looking for changes in the project path
