@@ -59,6 +59,8 @@ jobs:
       -
         name: Build image an push it to Docker Hub
         run: |
+          pwd
+          ls -la
           cd capstone_project/hello-world
           docker build -t capstone_project_react_build:latest .
 
