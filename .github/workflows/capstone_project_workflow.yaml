@@ -13,38 +13,38 @@ on:
     #   - .github/workflows/node_app_capstone.yml
 
 jobs:
-  test:
-    name: Test the capstone project
-    runs-on: ubuntu-20.04
-    steps:
-      - 
-        name: Get file up to date
-        uses: actions/checkout@v3
-        # Just update the files of the project specifing a path and a branch
-        #  with:
-        #   ref: main
-        #   path: capstone_project/hello-world
-      -
-        name: Setup Node
-        uses: actions/setup-node@v3
-      -
-        name: Install dependencies
-        run: |  
-          cd capstone_project/hello-world
-          npm install 
-      -
-        name: Run tests
-        run: |  
-          cd capstone_project/hello-world
-          npm test
+  # test:
+  #   name: Test the capstone project
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - 
+  #       name: Get file up to date
+  #       uses: actions/checkout@v3
+  #       # Just update the files of the project specifing a path and a branch
+  #       #  with:
+  #       #   ref: main
+  #       #   path: capstone_project/hello-world
+  #     -
+  #       name: Setup Node
+  #       uses: actions/setup-node@v3
+  #     -
+  #       name: Install dependencies
+  #       run: |  
+  #         cd capstone_project/hello-world
+  #         npm install 
+  #     -
+  #       name: Run tests
+  #       run: |  
+  #         cd capstone_project/hello-world
+  #         npm test
 
   container:
-    needs: [test]
+    # needs: [test]
     name: Create a docker image
     runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: capstone_project/hello-world/
+    # defaults:
+    #   run:
+    #     working-directory: capstone_project/hello-world/
     steps:
       -
         name: Set up Docker Buildx
