@@ -1,0 +1,6 @@
+version: '3'
+services:
+  node-app-capstone-project:
+    image: josejja1314/capstone_project_react_build:latest
+    ports:
+      - 3000:80
