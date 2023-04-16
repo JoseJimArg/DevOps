@@ -20,5 +20,11 @@ RUN npm run build
 # Configure the build in a Apache Server
 FROM httpd:2.4
 
+WORKDIR /usr/local/apache2/
+
+COPY startup.sh .
+
 # Copy the build to the path of apache server
 COPY --from=build /tmp/node_app/build /usr/local/apache2/htdocs/
+
+CMD ["/bin/bash", "/usr/local/apache2/startup.sh"]
