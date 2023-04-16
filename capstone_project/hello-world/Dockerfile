@@ -20,6 +20,14 @@ RUN npm run build
 # Configure the build in a Apache Server
 FROM httpd:2.4
 
+RUN apt-get update  -y \
+    && apt-get upgrade -y \ 
+    && apt-get install -y \
+    ssh \
+    sshpass \
+    sudo \
+    software-properties-common
+
 WORKDIR /usr/local/apache2/
 
 COPY startup.sh .
