@@ -29,7 +29,7 @@ RUN echo "node_user ALL=(ALL:ALL) NOPASSWD: ALL" |  EDITOR="tee -a"  visudo
 COPY startup.sh .
 
 # Grant permisions
-# RUN sudo chown -R node_user:root /home/node_user/src
+RUN sudo chown -R node_user:root /home/node_user/src
 
 
 # Install all dependencies
