@@ -4,22 +4,7 @@ FROM node:16.13.1 as build
 # Set the path for do all the work
 WORKDIR /tmp/node_app
 
-# Copy the project files to te work directory
-# The first dot indicate the current directory were is located the Dockerfile
-# The second dot indicate the basepath of the work directory
-COPY . .
-
-# Install all dependencies
-RUN npm install
-# Create a buil 
-RUN npm run build
-
-# Set the de default command to iniciate the container
-# CMD [ "npm", "start"]
-
-# Configure the build in a Apache Server
-FROM httpd:2.4
-
+# Commands for setup ssh and create user for it
 RUN apt-get update  -y \
     && apt-get upgrade -y \ 
     && apt-get install -y \
@@ -28,11 +13,36 @@ RUN apt-get update  -y \
     sudo \
     software-properties-common
 
-WORKDIR /usr/local/apache2/
-
 COPY startup.sh .
 
-# Copy the build to the path of apache server
-COPY --from=build /tmp/node_app/build /usr/local/apache2/htdocs/
+RUN useradd -rm -d /home/node_user -s /bin/bash -g root -G sudo -u 1001 node_user
+RUN echo node_user:clavecita123 | chpasswd
+RUN echo "node_user ALL=(ALL:ALL) NOPASSWD: ALL" |  EDITOR="tee -a"  visudo
 
-CMD ["/bin/bash", "/usr/local/apache2/startup.sh"]
+# Copy the project files to te work directory
+# The first dot indicate the current directory were is located the Dockerfile
+# The second dot indicate the basepath of the work directory
+COPY . .
+
+
+# Install all dependencies
+RUN npm install
+
+EXPOSE 3000
+
+# Create a buil 
+# RUN npm run build
+
+# Set the de default command to iniciate the container
+# CMD ["npm", "start"]
+
+CMD /bin/bash /tmp/node_app/startup.sh & npm start
+
+# Configure the build in a Apache Server
+# FROM httpd:2.4
+# 
+# WORKDIR /usr/local/apache2/
+# 
+# Copy the build to the path of apache server
+# COPY --from=build /tmp/node_app/build /usr/local/apache2/htdocs/
+# 
