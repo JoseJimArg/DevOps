@@ -1,0 +1,2 @@
+ansible_user: sudo
+ansible_password: clavecita123

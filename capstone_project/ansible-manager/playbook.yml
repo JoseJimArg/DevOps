@@ -1,0 +1,19 @@
+---
+# Playbook name and description
+- name: Change welcome message
+
+# Hosts and connection settings
+  hosts: node_project
+
+# Tasks section
+  tasks:
+    - name: Ping Test
+      # Use the ping module to perform a ping test
+      ansible.builtin.ping:
+
+    - name: Replace text in the HTML file
+      replace:
+        path: /home/node_user/src/App.js
+        regexp: 'Hello World!'
+        replace: 'Hello DevOps!!!!'
+    
