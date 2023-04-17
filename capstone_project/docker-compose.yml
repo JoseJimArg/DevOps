@@ -2,5 +2,7 @@ version: '3'
 services:
   node-app-capstone-project:
     image: josejja1314/capstone_project_react_build:latest
+    # build: hello-world/.
     ports:
-      - 3000:80
+      - 3000:3000
+      - 22:22
