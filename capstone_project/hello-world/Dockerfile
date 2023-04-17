@@ -2,7 +2,7 @@
 FROM node:16.13.1 as build
 
 
-# Commands for setup ssh and create user for it
+# Commands for setup ssh 
 RUN apt-get update  -y \
     && apt-get upgrade -y \ 
     && apt-get install -y \
@@ -10,11 +10,6 @@ RUN apt-get update  -y \
     sshpass \
     sudo \
     software-properties-common
-
-
-RUN useradd -rm -d /home/node_user -s /bin/bash -g root -G sudo -u 1001 node_user
-RUN echo node_user:clavecita123 | chpasswd
-RUN echo "node_user ALL=(ALL:ALL) NOPASSWD: ALL" |  EDITOR="tee -a"  visudo
 
 # Set the path for do all the work
 WORKDIR /home/node_user
@@ -24,8 +19,18 @@ WORKDIR /home/node_user
 # The second dot indicate the basepath of the work directory
 COPY . .
 
+# Commands for create user and grant permisions
+RUN useradd -rm -d /home/node_user -s /bin/bash -g root -G sudo -u 1001 node_user
+RUN echo node_user:clavecita123 | chpasswd
+RUN echo "node_user ALL=(ALL:ALL) NOPASSWD: ALL" |  EDITOR="tee -a"  visudo
+
+
 # Copy the file to start the ssh service
 COPY startup.sh .
+
+# Grant permisions
+# RUN sudo chown -R node_user:root /home/node_user/src
+
 
 # Install all dependencies
 RUN npm install
